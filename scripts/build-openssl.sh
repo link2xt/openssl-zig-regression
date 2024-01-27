@@ -1,5 +1,4 @@
 #!/bin/sh
-. venv/bin/activate
 export CC="$PWD/scripts/zig-cc"
 export LD="$CC"
 cd openssl

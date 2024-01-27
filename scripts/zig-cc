@@ -34,9 +34,6 @@ def main():
 
     subprocess.run(
         [
-            sys.executable,
-            "-m",
-            "ziglang",
             "cc",
             *args,
         ],
