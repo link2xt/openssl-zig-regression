@@ -26,12 +26,6 @@ def flag_filter(flag: str) -> bool:
 
 def main():
     args = [flag for flag in sys.argv[1:] if flag_filter(flag)]
-    zig_cpu = os.environ.get("ZIG_CPU")
-    if zig_cpu:
-        zig_cpu_args = ["-mcpu=" + zig_cpu]
-        args = [x for x in args if not x.startswith("-march")]
-    else:
-        zig_cpu_args = []
 
     # Disable atomics and use locks instead in OpenSSL.
     # Zig toolchains do not provide atomics.
@@ -44,7 +38,6 @@ def main():
             "-m",
             "ziglang",
             "cc",
-            *zig_cpu_args,
             *args,
         ],
         check=True,
