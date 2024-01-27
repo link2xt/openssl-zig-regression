@@ -2,7 +2,6 @@
 . venv/bin/activate
 export CC="$PWD/scripts/zig-cc"
 export LD="$CC"
-export ZIG_TARGET="x86_64-linux-musl"
 cd openssl
 perl ./Configure "--prefix=$PWD/install" \
 	no-dso no-shared \
